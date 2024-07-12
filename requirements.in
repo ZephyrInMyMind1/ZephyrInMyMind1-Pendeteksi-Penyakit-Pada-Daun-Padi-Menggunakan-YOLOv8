@@ -1,1 +1,11 @@
-echo -e "streamlit\nnumpy\npandas\nPillow\ntorch\ntorchvision\nopencv-python\nultralytics\nyt-dlp==2023.11.20\nsqlalchemy" > requirements.in
+echo==0.8.0
+numpy==1.26.4
+packaging==24.1
+qtpy==2.4.1
+streamlit
+torch
+torchvision
+opencv-python
+ultralytics
+yt-dlp==2024.7.9
+sqlalchemy 
