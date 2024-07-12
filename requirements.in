@@ -1,0 +1,1 @@
+echo -e "streamlit\nnumpy\npandas\nPillow\ntorch\ntorchvision\nopencv-python\nultralytics\nyt-dlp==2023.11.20\nsqlalchemy" > requirements.in
