@@ -134,7 +134,7 @@ def show_history_page():
         
         # Decode base64 to image
         img_data = base64.b64decode(result.image_base64)
-        img = PIL.Image.open(io.Bytes.IO(img_data))
+        img = PIL.Image.open(io.BytesIO(img_data))
         
         # Resize the image to fixed height
         resized_img = resize_to_fixed_height(img, fixed_height)
