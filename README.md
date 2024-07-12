@@ -1,0 +1,1 @@
+# ZephyrInMyMind1-Pendeteksi-Penyakit-Pada-Daun-Padi-Menggunakan-YOLOv8
