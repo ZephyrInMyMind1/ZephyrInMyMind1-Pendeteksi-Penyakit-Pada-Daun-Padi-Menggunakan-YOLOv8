@@ -1,1 +1,0 @@
-echo -e "streamlit\nnumpy\npandas\nPillow\ntorch\ntorchvision\nopencv-python\nultralytics\nyt-dlp" > requirements.in
