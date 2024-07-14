@@ -60,3 +60,19 @@ def play_webcam(conf, model):
             _display_detected_frames(conf, model, st_frame, frame)
 
         video.release()
+
+def play_stored_video(conf, model, video_path):
+    try:
+        video = cv2.VideoCapture(video_path)
+        st_frame = st.empty()
+
+        if st.button('Deteksi Video Tersimpan', key='detect_stored'):
+            while video.isOpened():
+                ret, frame = video.read()
+                if not ret:
+                    break
+                _display_detected_frames(conf, model, st_frame, frame)
+
+        video.release()
+    except Exception as e:
+        st.error(f"Error loading video: {e}")
