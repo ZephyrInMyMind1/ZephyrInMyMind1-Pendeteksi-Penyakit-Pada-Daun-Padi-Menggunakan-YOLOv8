@@ -8,6 +8,7 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 from settings import DetectionResult, get_db
 import io
+import tempfile  # Import tempfile module
 
 st.set_page_config(
     page_title="Pendeteksi Penyakit Daun Padi Menggunakan YOLOv8",
@@ -114,7 +115,12 @@ def main():
                     st.image(st.session_state['detection_result'], caption="Hasil Deteksi Objek", use_column_width=False)
         
         elif source_radio == settings.VIDEO:
-            helper.play_stored_video(confidence, model)
+            uploaded_video = st.file_uploader("Unggah Video", type=["mp4", "mov", "avi", "mkv"])
+            if uploaded_video is not None:
+                video_path = Path(tempfile.mktemp(suffix='.mp4'))
+                with open(video_path, 'wb') as f:
+                    f.write(uploaded_video.read())
+                helper.play_stored_video(confidence, model, str(video_path))
             
         elif source_radio == settings.WEBCAM:
             helper.play_webcam(confidence, model)
