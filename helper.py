@@ -21,6 +21,17 @@ def _display_detected_frames(conf, model, st_frame, image):
     resized_frame = resize_video_frame(res_plotted, 300)
     st_frame.image(resized_frame, caption="Deteksi Objek", use_column_width=False)
 
+def detect_objects(image, model, confidence):
+    # Convert image to numpy array
+    image_np = np.array(image)
+    # Perform detection
+    results = model.predict(image_np, conf=confidence)
+    # Plot the detection results
+    res_plotted = results[0].plot()
+    # Get detection results
+    res = results
+    return res_plotted, res
+
 def play_youtube_video(conf, model):
     url = st.text_input("Masukkan URL Video YouTube")
     if url:
@@ -67,7 +78,7 @@ def play_stored_video(conf, model, video_path):
         st_frame = st.empty()
 
         if st.button('Deteksi Video Tersimpan', key='detect_stored'):
-            while video.isOpened():
+            while video isOpened():
                 ret, frame = video.read()
                 if not ret:
                     break
