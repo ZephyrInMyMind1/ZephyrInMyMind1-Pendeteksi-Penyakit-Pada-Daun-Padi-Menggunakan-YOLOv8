@@ -78,7 +78,7 @@ def play_stored_video(conf, model, video_path):
         st_frame = st.empty()
 
         if st.button('Deteksi Video Tersimpan', key='detect_stored'):
-            while video isOpened():
+            while video.isOpened():
                 ret, frame = video.read()
                 if not ret:
                     break
